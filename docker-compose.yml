@@ -4,8 +4,8 @@ services:
   app:
     container_name: cn_FastAPI
     build: .
-    # ports:
-    #   - "8000:8000"
+    ports:
+      - "8000:8000"
     restart: unless-stopped
     logging:
       driver: "json-file"
