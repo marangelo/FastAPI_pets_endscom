@@ -14,18 +14,18 @@ services:
         max-size: "100k"
 
 
-    nginx:
-      restart: unless-stopped
-      image: nginx:latest
-      container_name: cn_FastAPI_nginx
-      ports:
-        - "8088:80"
-      volumes:
-        - ./nginx:/etc/nginx/user_conf.d:ro
-      depends_on:
-        - app
-      logging:
-        driver: "json-file"
-        options:
-          max-size: "100k"
-          max-file: "1"
+  nginx:
+    restart: unless-stopped
+    image: nginx:latest
+    container_name: cn_FastAPI_nginx
+    ports:
+      - "8088:80"
+    volumes:
+      - ./nginx:/etc/nginx/user_conf.d:ro
+    depends_on:
+      - app
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100k"
+        max-file: "1"
