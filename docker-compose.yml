@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  app:
+    container_name: cn_FastAPI
+    build: .
+    # ports:
+    #   - "8000:8000"
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "1"
+        max-size: "100k"
+
+
+    nginx:
+      restart: unless-stopped
+      image: nginx:latest
+      container_name: cn_FastAPI_nginx
+      ports:
+        - "8088:80"
+      volumes:
+        - ./nginx:/etc/nginx/user_conf.d:ro
+      depends_on:
+        - app
+      logging:
+        driver: "json-file"
+        options:
+          max-size: "100k"
+          max-file: "1"
