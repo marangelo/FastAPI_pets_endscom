@@ -2,7 +2,6 @@ from fastapi import FastAPI, Path, Query
 from fastapi.responses import HTMLResponse,JSONResponse
 from pydantic import BaseModel,Field
 from typing import Optional,List
-fg
 
 
 app = FastAPI()
